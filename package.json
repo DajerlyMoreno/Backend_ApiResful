@@ -1,7 +1,8 @@
 {
   "name": "api-restful",
   "version": "1.0.0",
-  "main": "swagger.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
@@ -9,11 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "cors": "^2.8.5",
-    "mongoose": "^8.7.0",
-    "swagger": "^0.7.5"
+    "express": "^4.21.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.7",
