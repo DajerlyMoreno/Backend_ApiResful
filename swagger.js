@@ -4,24 +4,17 @@ const swaggerJSDoc = require('swagger-jsdoc')
 
 const swaggerDefinition = { // Contiene la definición de la información de la API
     openapi : '3.0.0',
-    info : {
-        title : 'API RESTFul',
+    info: {
+        title: 'API RESTFul',
         version: '1.0.0',
-        description:'Documentación de la API RESTFul',
+        description: 'Documentación de la API RESTFul.\n\nContactos:\n\n- Robinson Molina (robinson.molina01@uptc.edu.co)\n- Jazmin Moreno (dajerlymoga@gmail.com)\n- Juan Beltrán (beltranrodriguezjuan9@gmail.com)',
         license: {
             name: "Licensed Under MIT",
-            url : 'https://spdx.org/licenses/MIT.html',
+            url: 'https://spdx.org/licenses/MIT.html',
         },
-        contact : {
-            name : 'Robinson Molina',
-            url : 'https://github.com/RobinsonMolina',
-            email : 'robinson.molina01@uptc.edu.co',
-            name : 'Jazmin Moreno',
-            url : '',
-            email : 'dajerlymoga@gmail.com',
-            name : 'Juan Beltrán',
-            url : '',
-            email : 'beltranrodriguezjuan9@gmail.com',
+        contact: {
+            name: 'Robinson Molina',
+            email: 'robinson.molina01@uptc.edu.co',
         },
     },
     servers : [
