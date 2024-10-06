@@ -1,5 +1,7 @@
 const express = require('express')
 
+const cors = require('cors')
+
 const app = express()
 
 //require('./drivers/connect-db')
@@ -10,11 +12,11 @@ const swaggerSpec = require('./swagger')
 
 app.set('PORT', process.env.PORT ||  3000)
 
+app.use(cors())
+
 app.use(express.json())
 
 app.use('/docs',swaggerUI.serve,swaggerUI.setup(swaggerSpec))
-
-//middlewares
 
 //app.use('/department',require('./routes/department'))
 
