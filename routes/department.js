@@ -119,10 +119,10 @@ const {
 
 
 
-routes.get('/',findAll)
+//routes.get('/',findAll)
 routes.patch('/:idD',update)
 routes.delete('/:idD',deleteDepartment)
-routes.get('/:idD',findById)
-routes.post('/',save)
+//routes.get('/:idD',findById)
+//routes.post('/',save)
 
 module.exports = routes

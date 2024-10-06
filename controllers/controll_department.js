@@ -15,7 +15,7 @@ module.exports = {
                 return res.status(404).json({ state: "Departamento no encontrado", data: null });
             }
         }catch(err){
-          return res.status(501).json({state:"Error del servidor",data:err})
+            return res.status(501).json({state:"Error del servidor",data:err})
         }
     },
     delete: async (req, res) => {
