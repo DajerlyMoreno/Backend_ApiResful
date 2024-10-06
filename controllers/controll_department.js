@@ -16,5 +16,5 @@ module.exports = {
         }catch(err){
           return res.status(501).json({state:"",data:err})
         }
-    }
+    },
 }
