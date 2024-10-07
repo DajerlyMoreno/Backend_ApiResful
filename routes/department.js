@@ -3,11 +3,11 @@
 const routes = require('express').Router()
 
 const {
-    findAll,
+    getAll,
     update,
     delete: deleteDepartment,
-    save,
-    findById
+    create,
+    getOne
 
 } = require('./../controllers/controll_department')
 
@@ -114,15 +114,67 @@ const {
  *             schema:
  *               type: string
  *               example: Error del servidor
+ * 
+ *  /departments/{id}:
+ *   get:
+ *     summary: Obtiene un departamento por su ID personalizado
+ *     tags: [Departments]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: El ID personalizado del departamento.
+ *     responses:
+ *       200:
+ *         description: Departamento encontrado exitosamente.
+ *       404:
+ *         description: No se encontró el departamento.
+ *       500:
+ *         description: Error interno del servidor.
+ * 
+ * /departments:
+ *   get:
+ *     summary: Obtiene todos los departamentos
+ *     tags: [Departments]
+ *     responses:
+ *       200:
+ *         description: Lista de departamentos obtenida exitosamente.
+ *       500:
+ *         description: Error interno del servidor.
+ * 
+ * /departments:
+ *   post:
+ *     summary: Crea un nuevo departamento
+ *     tags: [Departments]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: El nombre del departamento.
+ *               id:
+ *                 type: string
+ *                 description: El ID personalizado proporcionado por el usuario.
+ *     responses:
+ *       200:
+ *         description: Departamento creado exitosamente.
+ *       500:
+ *         description: Error interno del servidor.
  */
 
 
 
 
-//routes.get('/',findAll)
+routes.get('/',getAll)
 routes.patch('/:idD',update)
 routes.delete('/:idD',deleteDepartment)
-//routes.get('/:idD',findById)
-//routes.post('/',save)
-
+routes.get('/:id',getOne)
+routes.post('/',create)
+ 
 module.exports = routes

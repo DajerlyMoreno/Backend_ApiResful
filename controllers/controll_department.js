@@ -57,13 +57,13 @@ module.exports = {
     getOne : async (req, res) => {
         const {id} = req.params
         try {
-            const result = await Department.find({id})
+            const result = await Department.findOne({id : id}).populate('employees')
             if(result){
                 return res.status(200).json({state: true, data: result})
             }
-            return res.status(404).json({state: true, data: null})
+            return res.status(404).json({state: false, data: null})
         } catch (error) {
-            return res.status(500).json({state: false, data: null})
+            return res.status(500).json({state: false, data: error})
         }
     }
 }

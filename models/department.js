@@ -11,10 +11,10 @@ const schemaDepartment = new Schema({
         type : String,
         required: true
     },
-    employees : {
+    employees : [{
         type : Schema.Types.ObjectId,
         ref: 'employees'
-    },
+    }],
     numEmployees : {
         type : Number,
         required : true
