@@ -9,7 +9,7 @@ const {
 /**
  * @swagger
  * /employee:
- *  get:
+ *   get:
  *      tags:
  *      - Employees
  *      summary: Lista de empleados
@@ -92,6 +92,7 @@ const {
 
 
 
+routes.get('/',findAll)
 routes.get('/',findAll)
 routes.post('/:id',save)
 
