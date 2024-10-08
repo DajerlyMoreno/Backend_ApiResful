@@ -1,14 +1,20 @@
 {
   "name": "api-restful",
   "version": "1.0.0",
-  "description": "",
+  "description": "API RESTFul que a través de end points permite la gestión de departamentos y empleados de una empresa, aplicando los json web tokens como mecanismo de seguridad",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "API RESTFul",
+    "JS",
+    "MongoDB",
+    "Express",
+    "Swagger"
+  ],
+  "author": "Robinson Molina, Jazmin Moreno, Juan Beltrán",
   "license": "ISC",
   "dependencies": {
     "api-restful": "file:",

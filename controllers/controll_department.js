@@ -15,7 +15,7 @@ module.exports = {
                 return res.status(404).json({ state: "Departamento no encontrado", data: null });
             }
         }catch(err){
-          return res.status(501).json({state:"Error del servidor",data:err})
+            return res.status(501).json({state:"Error del servidor",data:err})
         }
     },
     delete: async (req, res) => {
@@ -35,6 +35,35 @@ module.exports = {
         } catch (err) {
             console.log(err);
             return res.status(501).json({ state: "Error del servidor", data: err });
+        }
+    }, 
+    create : async (req, res) => {
+        const department = new Department(req.body)
+        try {
+            const result = await department.save()
+            return res.status(200).json({state: true, data: result})
+        } catch (error) {
+            return res.status(500).json({state: false, data: error})
+        }
+    },
+    getAll : async (req, res) => {
+        try {
+            const result = await Department.find({})
+            return res.status(200).json({state: true, data: result})
+        } catch (error) {
+            return res.status(500).json({state: false, data: null})
+        }
+    },
+    getOne : async (req, res) => {
+        const {id} = req.params
+        try {
+            const result = await Department.findOne({id : id}).populate('employees')
+            if(result){
+                return res.status(200).json({state: true, data: result})
+            }
+            return res.status(404).json({state: false, data: null})
+        } catch (error) {
+            return res.status(500).json({state: false, data: error})
         }
     }
 }
