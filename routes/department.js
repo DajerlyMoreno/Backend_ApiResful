@@ -13,8 +13,10 @@ const {
 
 /**
  * @swagger
- * /departments:
+ * /departments-update:
  *   patch:
+ *     tags:
+ *     - Departments
  *     summary: Update a department
  *     description: Update a department
  *     responses:
@@ -64,7 +66,10 @@ const {
  *             schema:
  *               type: string
  *               example: Error del servidor
+ * /departments-delete:
  *   delete:
+ *     tags:
+ *     - Departments
  *     summary: Delete a department
  *     description: Delete a department
  *     responses:
@@ -115,10 +120,11 @@ const {
  *               type: string
  *               example: Error del servidor
  * 
- *  /departments/{id}:
+ * /departments/{id}:
  *   get:
  *     summary: Obtiene un departamento por su ID personalizado
- *     tags: [Departments]
+ *     tags: 
+ *     - Departments
  *     parameters:
  *       - in: path
  *         name: id
@@ -137,17 +143,19 @@ const {
  * /departments:
  *   get:
  *     summary: Obtiene todos los departamentos
- *     tags: [Departments]
+ *     tags:
+ *     - Departments
  *     responses:
  *       200:
  *         description: Lista de departamentos obtenida exitosamente.
  *       500:
  *         description: Error interno del servidor.
  * 
- * /departments:
+ * /departments-save:
  *   post:
  *     summary: Crea un nuevo departamento
- *     tags: [Departments]
+ *     tags:
+ *     - Departments
  *     requestBody:
  *       required: true
  *       content:

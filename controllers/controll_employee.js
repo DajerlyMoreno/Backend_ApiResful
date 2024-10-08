@@ -2,7 +2,7 @@
 const Employee = require('./../models/employee')
 const Department = require('./../models/department')
 module.exports = {
-    save : async(req,res)=>{
+    'save' : async(req,res)=>{
         const employee = new Employee(req.body)
         const {id} = req.params
         try{

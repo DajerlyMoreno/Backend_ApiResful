@@ -1,5 +1,6 @@
 // Route of the Employee
-routes.get('/',findAll)
+const routes = require('express').Router()
+
 const {
     findAll,
     save
@@ -10,7 +11,7 @@ const {
  * /employee:
  *  get:
  *      tags:
- *      - Obtener Empleados
+ *      - Employees
  *      summary: Lista de empleados
  *      description: Método que retorna una lista de los empleados
  *      responses:
@@ -47,8 +48,10 @@ const {
  *                      schema:
  *                          type:  string
  *                          example: Error
- * 
+ * /employee-save:
  *   post:
+ *     tags:
+ *     - Employees
  *     summary: Create a new employee
  *     description: Create a new employee
  *     responses:
@@ -89,7 +92,7 @@ const {
 
 
 
-//routes.get('/',findAll)
+routes.get('/',findAll)
 routes.post('/:id',save)
 
 module.exports = routes
