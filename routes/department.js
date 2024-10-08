@@ -114,8 +114,15 @@ const {
  *             schema:
  *               type: string
  *               example: Error del servidor
- * 
- *  /departments/{id}:
+ *   get:
+ *     summary: Obtiene todos los departamentos
+ *     tags: [Departments]
+ *     responses:
+ *       200:
+ *         description: Lista de departamentos obtenida exitosamente.
+ *       500:
+ *         description: Error interno del servidor.
+ * /departments/{id}:
  *   get:
  *     summary: Obtiene un departamento por su ID personalizado
  *     tags: [Departments]
@@ -133,18 +140,6 @@ const {
  *         description: No se encontró el departamento.
  *       500:
  *         description: Error interno del servidor.
- * 
- * /departments:
- *   get:
- *     summary: Obtiene todos los departamentos
- *     tags: [Departments]
- *     responses:
- *       200:
- *         description: Lista de departamentos obtenida exitosamente.
- *       500:
- *         description: Error interno del servidor.
- * 
- * /departments:
  *   post:
  *     summary: Crea un nuevo departamento
  *     tags: [Departments]

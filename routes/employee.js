@@ -1,5 +1,7 @@
 // Route of the Employee
-routes.get('/',findAll)
+
+const routes = require('express').Router()
+
 const {
     findAll,
     save
@@ -8,7 +10,7 @@ const {
 /**
  * @swagger
  * /employee:
- *  get:
+ *   get:
  *      tags:
  *      - Obtener Empleados
  *      summary: Lista de empleados
@@ -89,7 +91,7 @@ const {
 
 
 
-//routes.get('/',findAll)
+routes.get('/',findAll)
 routes.post('/:id',save)
 
 module.exports = routes
