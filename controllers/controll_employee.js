@@ -1,10 +1,8 @@
 // Controller of the Employee
-
 const Employee = require('./../models/employee')
 const Department = require('./../models/department')
-
 module.exports = {
-    save : async(req,res)=>{
+    'save' : async(req,res)=>{
         const employee = new Employee(req.body)
         const {id} = req.params
         try{
@@ -19,6 +17,17 @@ module.exports = {
             }
         }catch(err){
           return res.status(500).json({state:"Error del servidor",data:err})
+        }
+    },
+    'findAll' : async (req,res)=>{
+        try{
+
+            const result = await Employee.find({})
+
+            return res.status(200).json({state:true,data:result})
+
+        }catch(err){
+            return res.status(500).json({state:"Error",data:null})
         }
     }
 }
