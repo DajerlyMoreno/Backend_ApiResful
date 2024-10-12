@@ -168,9 +168,6 @@ const {
  *         description: Error interno del servidor.
  */
 
-
-
-
 routes.get('/',getAll)
 routes.patch('/:idD',update)
 routes.delete('/:idD',deleteDepartment)

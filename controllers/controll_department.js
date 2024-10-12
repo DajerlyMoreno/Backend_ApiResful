@@ -57,7 +57,7 @@ module.exports = {
     getOne : async (req, res) => {
         const {id} = req.params
         try {
-            const result = await Department.findOne({id : id}).populate('employees')
+            const result = await Department.findById(id).populate('employees')
             if(result){
                 return res.status(200).json({state: true, data: result})
             }

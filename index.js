@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 
 const app = express()
 
@@ -14,6 +15,7 @@ app.use(express.json())
 
 app.use('/docs',swaggerUI.serve,swaggerUI.setup(swaggerSpec))
 
+app.use(cors())
 //middleware
 app.use('/departments',require('./routes/department'))
 app.use('/employees',require('./routes/employee'))
