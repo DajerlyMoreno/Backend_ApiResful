@@ -7,7 +7,8 @@ const {
     update,
     delete: deleteDepartment,
     create,
-    getOne
+    getOne,
+    getEmployeesOne
 
 } = require('./../controllers/controll_department')
 
@@ -181,5 +182,6 @@ routes.patch('/:idD',update)
 routes.delete('/:idD',deleteDepartment)
 routes.get('/:id',getOne)
 routes.post('/',create)
+routes.get('/:idD/employees', getEmployeesOne)
  
 module.exports = routes

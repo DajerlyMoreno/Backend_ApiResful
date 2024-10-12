@@ -65,5 +65,14 @@ module.exports = {
         } catch (error) {
             return res.status(500).json({state: false, data: error})
         }
+    },
+    getEmployeesOne: async (req, res) => {
+        try {
+            const departmentId = req.params.id;
+            const employees = await Employee.find({ departmentId: departmentId });
+            res.status(200).json(employees);
+        } catch (error) {
+            res.status(500).json({ message: error.message });
+        }
     }
 }
