@@ -15,10 +15,11 @@ const schemaDepartment = new Schema({
         type : Schema.Types.ObjectId,
         ref: 'employees'
     }],
-    numEmployees : {
-        type : Number,
-        required : true
-    }
 })
+
+// Virtual field para el número de empleados
+departmentSchema.virtual('numEmployees').get(function () {
+    return this.employees.length;
+});
 
 module.exports = mongoose.model('departments', schemaDepartment)
