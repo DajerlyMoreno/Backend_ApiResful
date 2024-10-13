@@ -87,6 +87,18 @@ module.exports = {
             return res.status(500).json({state: false, data: null})
         }
     },
+    getOne : async (req, res) => {
+        const {id} = req.params
+        try {
+            const result = await Department.findById(id).populate('employees')
+            if(result){
+                return res.status(200).json({state: true, data: result})
+            }
+            return res.status(404).json({state: false, data: null})
+        } catch (error) {
+            return res.status(500).json({state: false, data: error})
+        }
+    },
     getEmployeesOne: async (req, res) => {
         try {
             const token = req.headers.authorization.split(" ")[1];
