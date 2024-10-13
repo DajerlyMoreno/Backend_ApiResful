@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Recursos Humanos",
+        "employees": [],
+        "numEmployees": 0
+    },
+    {
+        "id": 2,
+        "name": "Finanzas",
+        "employees": [],
+        "numEmployees": 0
+    },
+    {
+        "id": 3,
+        "name": "Tecnología de la Información",
+        "employees": [],
+        "numEmployees": 0
+    },
+    {
+        "id": 4,
+        "name": "Marketing",
+        "employees": [],
+        "numEmployees": 0
+    },
+    {
+        "id": 5,
+        "name": "Ventas",
+        "employees": [],
+        "numEmployees": 0
+    }
+]

@@ -6,7 +6,7 @@ const swaggerDefinition = {
     info : {
         title : 'API-RESTFUL',
         version: '1.0.0',
-        description:'Documentación con Swagger',
+        description:'API para gestionar empleados y departamentos en una empresa',
         license : {
             name: 'License Under MIT',
             url: 'https://spdx.org/licenses/MIT.html'

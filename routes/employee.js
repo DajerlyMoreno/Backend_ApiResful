@@ -4,7 +4,8 @@ const routes = require('express').Router()
 const {
     findAll,
     save,
-    findById
+    findById,
+    update
 } = require('./../controllers/controll_employee')
 
 
@@ -137,10 +138,50 @@ const {
  *                      schema:
  *                          type:  string
  *                          example: Error
+ * 
+ * /employee-update:
+ *   put:
+ *     tags:
+ *     - Employees
+ *     summary: Actualiza un Empleado
+ *     description: Actualiza un Empleado
+ *     responses:
+ *       200:
+ *         description: Departamento actualizado con éxito
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: number
+ *                 name:
+ *                   type: string
+ *                 phone:
+ *                   type: number
+ *                 email:
+ *                   type: string
+ *                 department:
+ *                   type: object
+ *       404:
+ *         description: Empleado no encontrado
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ *               example: Not Found
+ *       501:
+ *         description: Error
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ *               example: Error del servidor
 */
 
 routes.get('/',findAll)
-routes.post('/:id',save)
+routes.post('/',save)
 routes.get('/:id',findById)
+routes.put('/:idE',update)
 
 module.exports = routes
