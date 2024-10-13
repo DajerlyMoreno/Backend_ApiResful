@@ -69,10 +69,10 @@ module.exports = {
     getEmployeesOne: async (req, res) => {
         try {
             const departmentId = req.params.id;
-            const employees = await Employee.find({ departmentId: departmentId });
+            const employees = await Employee.find({state: true,  departmentId: departmentId });
             res.status(200).json(employees);
         } catch (error) {
-            res.status(500).json({ message: error.message });
+            res.status(500).json({state: false, message: error.message });
         }
     }
 }
