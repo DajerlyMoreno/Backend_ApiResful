@@ -40,7 +40,6 @@ module.exports = {
     create : async (req, res) => {
         const department = new Department(req.body)
         try {
-            const result = await department.save()
             return res.status(200).json({state: true, data: result})
         } catch (error) {
             return res.status(500).json({state: false, data: error})
