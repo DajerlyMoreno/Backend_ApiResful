@@ -93,7 +93,6 @@ const {
 
 
 routes.get('/',findAll)
-routes.get('/',findAll)
 routes.post('/:id',save)
 
 module.exports = routes
