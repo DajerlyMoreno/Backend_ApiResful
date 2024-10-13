@@ -8,7 +8,8 @@ const {
     delete: deleteDepartment,
     create,
     getOne,
-    getEmployeesOne
+    getEmployeesOne,
+    getSalaryByDepartment
 
 } = require('./../controllers/controll_department')
 
@@ -175,13 +176,62 @@ const {
  *         description: Departamento creado exitosamente.
  *       500:
  *         description: Error interno del servidor.
+ * 
+ * /departments/{idD}/salary:
+ *   get:
+ *     summary: Obtiene la sumatoria de salarios de empleados en un departamento
+ *     tags:
+ *       - Departments
+ *     parameters:
+ *       - name: idD
+ *         in: path
+ *         required: true
+ *         description: ID del departamento para el cual se quiere obtener la sumatoria de salarios.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Salarios obtenidos exitosamente.
+ *         content:
+ *            application/json:
+ *              schema:
+ *               type: object
+ *               properties:
+ *                 state:
+ *                   type: string
+ *                   example: "Salarios obtenidos con éxito"
+ *                 totalSalary:
+ *                   type: number
+ *                   description: La sumatoria total de salarios de los empleados en el departamento.
+ *                   example: 150000
+ *       '404':
+ *         description: Departamento no encontrado.
+ *         content:
+ *          application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 state:
+ *                   type: string
+ *                   example: "Departamento no encontrado"
+ *       '500':
+ *         description: Error interno del servidor.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 state:
+ *                   type: string
+ *                   example: "Error interno del servidor"
  */
 
 routes.get('/',getAll)
-routes.patch('/:idD',update)
+routes.put('/:idD',update)
 routes.delete('/:idD',deleteDepartment)
 routes.get('/:id',getOne)
 routes.post('/',create)
 routes.get('/:idD/employees', getEmployeesOne)
+routes.get('/:idD/salary', getSalaryByDepartment);
  
 module.exports = routes
