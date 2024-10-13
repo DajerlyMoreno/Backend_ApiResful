@@ -1,5 +1,8 @@
 const express = require('express')
 const cors = require('cors')
+const jwt = require('jsonwebtoken')
+
+const key = "Electiva:)"
 
 const app = express()
 
@@ -21,5 +24,19 @@ app.use(cors())
 //middleware
 app.use('/departments',require('./routes/department'))
 app.use('/employees',require('./routes/employee'))
+
+app.post('/loging', (req, res) => {
+    const {id, name} = req.body
+    if(id == 12345 & name == "Admin"){
+        const token = jwt.sign({
+            sub: id,
+            name: name,
+            exp: Date.now() + 600000
+        }, key)
+    
+        return res.send(token)
+    }
+    return res.send("Credenciales invalidas")
+})
 
 app.listen(app.get('PORT'),()=>console.log(`Server Ready at port ${app.get('PORT')}`))
