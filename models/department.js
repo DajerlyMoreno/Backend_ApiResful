@@ -17,7 +17,6 @@ const schemaDepartment = new Schema({
     }],
 })
 
-
 schemaDepartment.virtual('numEmployees').get(function () {
     return this.employees.length;
 });

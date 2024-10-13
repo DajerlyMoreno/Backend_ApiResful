@@ -8,7 +8,8 @@ const {
     delete: deleteDepartment,
     create,
     getOne,
-    getEmployeesOne
+    getEmployeesOne,
+    getSalaryByDepartment
 
 } = require('./../controllers/controll_department')
 
@@ -183,5 +184,6 @@ routes.delete('/:idD',deleteDepartment)
 routes.get('/:id',getOne)
 routes.post('/',create)
 routes.get('/:idD/employees', getEmployeesOne)
+routes.get('/:idD/salary', getSalaryByDepartment);
  
 module.exports = routes
