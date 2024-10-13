@@ -71,5 +71,34 @@ module.exports = {
         } catch (err) {
         return res.status(500).json({ state: "Error del servidor", data: err });
         }
+    },
+    "delete": async (req, res) => {
+    const { idE } = req.params;
+    try {
+        const employee = await Employee.findById(idE);
+        if (!employee) {
+            return res.status(404).json({ state: "Empleado no encontrado", data: null });
+        }
+        console.log("Empleado encontrado:", employee);
+
+        const department = await Department.findById(employee.department);
+        if (!department) {
+            return res.status(404).json({ state: "Departamento no encontrado", data: null });
+        }
+        console.log("Departamento encontrado:", department);
+
+        department.employees = department.employees.filter(empId => empId.toString() !== idE);
+        await department.save();
+        console.log("Empleado removido del departamento:", department.employees);
+
+        const result = await Employee.deleteOne({ _id: idE });
+        console.log("Empleado eliminado:", result);
+
+        return res.status(200).json({ state: "Empleado eliminado con éxito", data: result });
+    } catch (err) {
+        console.log("Error del servidor:", err);
+        return res.status(501).json({ state: "Error del servidor", data: err });
     }
+}
+
 }

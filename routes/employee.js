@@ -5,7 +5,8 @@ const {
     findAll,
     save,
     findById,
-    update
+    update,
+    delete: deleteEmployee
 } = require('./../controllers/controll_employee')
 
 
@@ -177,11 +178,53 @@ const {
  *             schema:
  *               type: string
  *               example: Error del servidor
+ * 
+ * /employee-delete:
+ *   delete:
+ *     tags:
+ *     - Employees
+ *     summary: Eliminar a un empleado.
+ *     description: Eliminar a un empleado.
+ *     responses:
+ *       200:
+ *         description: Empleado eliminado con éxito
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: number
+ *                 name:
+ *                   type: string
+ *                 phone:
+ *                   type: number
+ *                 email:
+ *                   type: string
+ *                 salary:
+ *                   type: Number
+ *                 department:
+ *                   type: object
+ *       404:
+ *         description: Empleado no encontrado
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ *               example: Empleado no encontrado
+ *       501:
+ *         description: Error
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ *               example: Error del servidor
 */
 
 routes.get('/',findAll)
 routes.post('/',save)
 routes.get('/:id',findById)
 routes.put('/:idE',update)
+routes.delete('/:idE',deleteEmployee)
 
 module.exports = routes
