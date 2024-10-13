@@ -121,5 +121,25 @@ module.exports = {
         } catch (error) {
             return res.status(401).json({ error: "Invalid token", message: error.message });
         }
+    },
+    "getSalaryByDepartment": async (req, res) => {
+    const { idD } = req.params; // idD es el id del departamento
+    try {
+        const department = await Department.findById(idD).populate('employees');
+        
+        if (!department) {
+            return res.status(404).json({ state: "Departamento no encontrado", data: null });
+        }
+
+        const employees = department.employees;
+        
+        const totalSalary = employees.reduce((sum, employee) => sum + employee.salary, 0);
+
+        return res.status(200).json({ state: "Salarios calculados con éxito", totalSalary });
+    } catch (err) {
+        console.log("Error del servidor:", err);
+        return res.status(500).json({ state: "Error del servidor", data: err });
     }
+}
+
 }
