@@ -11,6 +11,8 @@ const swaggerSpec = require('./swagger')
 
 app.set('PORT',process.env.PORT || 3000 )
 
+app.use(cors())
+
 app.use(express.json())
 
 app.use('/docs',swaggerUI.serve,swaggerUI.setup(swaggerSpec))
