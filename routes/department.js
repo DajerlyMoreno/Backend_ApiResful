@@ -176,7 +176,61 @@ const {
  *         description: Departamento creado exitosamente.
  *       500:
  *         description: Error interno del servidor.
- * 
+ * /departments/{idD}/employees:
+ *   get:
+ *     summary: Obtiene todos los empleados de un departamento
+ *     tags:
+ *     - Departments
+ *     parameters:
+ *       - in: path
+ *         name: idD
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: El ID personalizado del departamento.
+ *     responses:
+ *       200:
+ *         description: Lista de empleados obtenida exitosamente.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: number
+ *                   name:
+ *                     type: string
+ *                   phone:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ *                   salary:
+ *                     type: Number
+ *                   department:
+ *                     type: object
+ *       404:
+ *         description: No se encontró el departamento.
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ *               example: Departamento no encontrado
+ *       500:
+ *         description: Error interno del servidor.
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ *               example: Error interno del servidor
+ *       401:
+ *         description: Token inválido o expirado..
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ *               example: Invalid token
  * /departments/{idD}/salary:
  *   get:
  *     summary: Obtiene la sumatoria de salarios de empleados en un departamento
