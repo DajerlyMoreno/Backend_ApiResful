@@ -178,7 +178,7 @@ const {
  */
 
 routes.get('/',getAll)
-routes.patch('/:idD',update)
+routes.put('/:idD',update)
 routes.delete('/:idD',deleteDepartment)
 routes.get('/:id',getOne)
 routes.post('/',create)

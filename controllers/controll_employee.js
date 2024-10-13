@@ -4,11 +4,11 @@ const Department = require('./../models/department')
 module.exports = {
     'save' : async(req,res)=>{
         const employee = new Employee(req.body)
-        const {id} = req.params
+        const departmentId = employee.department;
         try{
-            const department = await Department.findById(id)
+            const department = await Department.findById(departmentId);
             if( department ){
-                department.employees.push( employee )
+                department.employees.push(employee._id)
                 await department.save()
                 employee.department = department
                 return res.status(201).json({state:"Empleado creado con éxito",data:employee})

@@ -140,7 +140,7 @@ const {
 */
 
 routes.get('/',findAll)
-routes.post('/:id',save)
+routes.post('/',save)
 routes.get('/:id',findById)
 
 module.exports = routes
