@@ -18,7 +18,7 @@ const swaggerDefinition = {
     },
     servers : [
         {
-            url: 'https://api-rest-ful-vert.vercel.app',
+            url: 'https://api-rest-ful-vert.vercel.app/docs',
             description: 'Server'
         }
     ]
