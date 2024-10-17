@@ -34,9 +34,9 @@ app.post('/loging', (req, res) => {
             exp: Date.now() + 600000
         }, key)
     
-        return res.send(token)
+        return res.status(200).send(token)
     }
-    return res.send("Credenciales invalidas")
+    return res.status(400).send("Credenciales invalidas")
 })
 
 app.listen(app.get('PORT'),()=>console.log(`Server Ready at port ${app.get('PORT')}`))
